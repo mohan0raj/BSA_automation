@@ -2,3 +2,4 @@
 
 ## Getting started
 
+added pic
