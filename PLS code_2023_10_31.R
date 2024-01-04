@@ -126,6 +126,7 @@ while (dim(y)[1]>0){
 } # iteratively removes least path, from each variable until all paths are above cut-off.  
 
 colnames(removed_paths)[3]<-"value"
+removed_paths<-rbind(removed_negative_paths,removed_paths)
 removed_paths[,3]<-as.numeric(removed_paths[,3])
 tested_values <- as.data.frame(unclass(xtabs(value~source+target,data=removed_paths)))
 tested_values<-cbind(" "=row.names(tested_values),tested_values)
@@ -135,13 +136,13 @@ save_itr3<- as.data.frame(cbind(" "=row.names(path_coef1),path_coef1))
 
 #saving the outputs ----------------
 write_xlsx(list(itr1=save_itr1,
-                negative_path=removed_negative_paths,itr2=save_itr2,
-                testing_sheet=tested_values,itr3=save_itr3),
+                itr2=save_itr2,
+                itr3=save_itr3,
+                testing_sheet=tested_values),
            "output.xlsx") 
 # creates excel sheet with 
 # > iteration 1 initial model
-# > removed negative paths
 # > iteration 2 with negative paths removed
+# > iteration 3 final model co-eff
 # > paths below cut-off co-eff (testing sheet)
-# > iteration 3 final model co-eff 
 
