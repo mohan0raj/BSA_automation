@@ -144,5 +144,5 @@ write_xlsx(list(itr1=save_itr1,
 # > iteration 1 initial model
 # > iteration 2 with negative paths removed
 # > iteration 3 final model co-eff
-# > paths below cut-off co-eff (testing sheet)
+# > paths below cut-off co-eff (testing sheet) and negative paths
 
