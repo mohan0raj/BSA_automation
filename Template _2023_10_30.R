@@ -179,9 +179,12 @@ for ( i  in cutoff ) {
 Solution1 = boot50[(boot50$strength >= 0.3) & (boot50$direction > 0.5),   ] 
 #select the strength depending upon the path
 
+write.csv(xtabs(~.,Solution1[,1:2]),"paths to be tested.csv")
+#Gives Paths to be tested in Matrix Format 
+
 avg.boot1 = averaged.network(Solution1)
 
 write.csv(directed.arcs(avg.boot1), "avgbootDirected_Arcs.csv") #gives the output in excel
 
-write.csv(xtabs(~.,Solution1[,1:2]),"paths to be tested.csv")
+
 
