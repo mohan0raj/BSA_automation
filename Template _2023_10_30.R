@@ -24,8 +24,9 @@ library(ggplot2)
 
 rm(list=ls()) #clear environment (clears variables and data)
 
-setwd("paste folder path")           #sets working directory   
-# ***important --  replace \ with /  while pasting paths
+setwd(dirname(getActiveDocumentContext()$path))
+#sets working directory where template.R file is located  
+
 
 sink("Log file.txt",split=T, append = T)  #log file
 
